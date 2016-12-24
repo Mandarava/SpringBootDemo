@@ -6,7 +6,7 @@
 	<groupId>com.ztc</groupId>
 	<artifactId>SpringBootDemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>SpringBootDemo</name>
 	<description>Demo project for Spring Boot</description>
@@ -28,6 +28,7 @@
         <mybatis-spring.version>1.3.0</mybatis-spring.version>
         <mybatis-spring-boot-starter.version>1.1.1</mybatis-spring-boot-starter.version>
         <jackson-dataformat-yaml.version>2.8.5</jackson-dataformat-yaml.version>
+        <tomcat-servlet-api.version>8.5.8</tomcat-servlet-api.version>
 	</properties>
 
 	<dependencies>
@@ -35,7 +36,26 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+            <!--<exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>-->
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-servlet-api</artifactId>
+            <version>${tomcat-servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -139,6 +159,8 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
+        <finalName>SpringBootDemo</finalName>
 	</build>
 
 
