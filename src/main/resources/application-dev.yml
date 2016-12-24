@@ -1,0 +1,5 @@
+server:
+  port: 8089
+  context-path: /SpringBootDemo
+
+content: "port: ${server.port },height: ${server.context-path}"
