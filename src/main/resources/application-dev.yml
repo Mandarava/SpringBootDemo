@@ -24,6 +24,7 @@ spring:
       testOnReturn: false
       poolPreparedStatements: true
       maxOpenPreparedStatements: 20
+      useGlobalDataSourceStat: true
   redis:
     host: localhost
     port: 6379
