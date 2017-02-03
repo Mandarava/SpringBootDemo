@@ -18,3 +18,4 @@ logging:
         web : info
   path: G://
   file: log.log
+  config: classpath:log4j2.yml

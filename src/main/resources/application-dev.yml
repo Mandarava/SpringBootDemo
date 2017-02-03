@@ -37,4 +37,8 @@ spring:
     timeout: 0
     database: 0
 
+management:
+  security:
+    enabled: false
+
 content: "port: ${server.port },height: ${server.context-path}"
