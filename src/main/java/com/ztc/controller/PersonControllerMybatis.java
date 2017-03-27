@@ -21,9 +21,9 @@ public class PersonControllerMybatis {
     private PersonMapper personMapper;
 
     @GetMapping(value = "/person2")
-    public List<Person> findPersonList(){
+    public List<Person> findPersonList() {
         List<Person> personList = personMapper.findPersonList();
-        return  personList;
+        return personList;
     }
 
 }
