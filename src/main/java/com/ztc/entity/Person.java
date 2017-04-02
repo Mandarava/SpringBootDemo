@@ -3,6 +3,7 @@ package com.ztc.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 /**
  * Created by zt on 2016/12/24.
@@ -16,6 +17,7 @@ public class Person {
 
     private String name;
 
+    @Min(value = 0, message = "年龄必须大于0岁！")
     private Integer age;
 
     public Person() {

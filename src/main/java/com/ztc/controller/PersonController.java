@@ -4,6 +4,7 @@ import com.ztc.dao.PersonRepository;
 import com.ztc.entity.Person;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
+import javax.validation.Valid;
 
 /**
  * Created by zt on 2016/12/24.
@@ -24,29 +27,29 @@ public class PersonController {
     private PersonRepository personRepository;
 
     @GetMapping(value = "/person")
-    public List<Person> personList(){
+    public List<Person> personList() {
         return personRepository.findAll();
     }
 
     @PostMapping(value = "/person")
-    public Person personAdd(@RequestParam("name") String name,
-                            @RequestParam("age") Integer age){
-        Person person = new Person();
-        person.setName(name);
-        person.setAge(age);
+    public Person personAdd(@Valid Person person, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult.getFieldError().getDefaultMessage());
+            return null;
+        }
         person = personRepository.save(person);
         return person;
     }
 
-    @GetMapping(value="/person/{id}")
-    public Person personFindOne(@PathVariable("id") Integer id){
-        return  personRepository.findOne(id);
+    @GetMapping(value = "/person/{id}")
+    public Person personFindOne(@PathVariable("id") Integer id) {
+        return personRepository.findOne(id);
     }
 
-    @PutMapping(value="/person/{id}")
+    @PutMapping(value = "/person/{id}")
     public Person personUpdate(@PathVariable("id") Integer id,
-                             @RequestParam("name") String name,
-                             @RequestParam("age") Integer age){
+                               @RequestParam("name") String name,
+                               @RequestParam("age") Integer age) {
         Person person = new Person();
         person.setId(id);
         person.setAge(age);
@@ -55,13 +58,13 @@ public class PersonController {
     }
 
     @DeleteMapping(value = "/person/{id}")
-    public void personDelete(@PathVariable("id") Integer id){
-            personRepository.delete(id);
+    public void personDelete(@PathVariable("id") Integer id) {
+        personRepository.delete(id);
     }
 
-    @GetMapping(value="/person/age/{age}")
-    public List<Person> personListByAge(@PathVariable("age") Integer age){
-        return  personRepository.findByAge(age);
+    @GetMapping(value = "/person/age/{age}")
+    public List<Person> personListByAge(@PathVariable("age") Integer age) {
+        return personRepository.findByAge(age);
     }
 
 }
