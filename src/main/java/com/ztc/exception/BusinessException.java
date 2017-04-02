@@ -1,30 +1,34 @@
 package com.ztc.exception;
 
+import com.ztc.enums.ErrorEnum;
+
 /**
  * Created by zt on 2017/2/3.
  */
-public class BusinessException extends Exception {
+public class BusinessException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
+    private Integer code;
+
     public BusinessException() {
         super();
+    }
+
+    public BusinessException(ErrorEnum errorEnum) {
+        super(errorEnum.getMsg());
+        this.code = errorEnum.getCode();
     }
 
     public BusinessException(String message) {
         super(message);
     }
 
-    public BusinessException(String message, Throwable cause, boolean enableSuppression,
-                             boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
+    public Integer getCode() {
+        return code;
     }
 
-    public BusinessException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public BusinessException(Throwable cause) {
-        super(cause);
+    public void setCode(Integer code) {
+        this.code = code;
     }
 }

@@ -2,6 +2,10 @@ package com.ztc.controller;
 
 import com.ztc.dao.PersonRepository;
 import com.ztc.entity.Person;
+import com.ztc.entity.Result;
+import com.ztc.enums.ErrorEnum;
+import com.ztc.exception.BusinessException;
+import com.ztc.utils.ResultUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,13 +40,11 @@ public class PersonController {
     }
 
     @PostMapping(value = "/person")
-    public Person personAdd(@Valid Person person, BindingResult bindingResult) {
+    public Result<Person> personAdd(@Valid Person person, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            System.out.println(bindingResult.getFieldError().getDefaultMessage());
-            return null;
+            return ResultUtil.error(Result.ERROR, bindingResult.getFieldError().getDefaultMessage());
         }
-        person = personRepository.save(person);
-        return person;
+        return ResultUtil.success(personRepository.save(person));
     }
 
     @GetMapping(value = "/person/{id}")
@@ -69,6 +71,23 @@ public class PersonController {
     @GetMapping(value = "/person/age/{age}")
     public List<Person> personListByAge(@PathVariable("age") Integer age) {
         return personRepository.findByAge(age);
+    }
+
+    @GetMapping(value = "/person/getAge/{id}")
+    public void getAge(@PathVariable("id") Integer id) {
+        this.findAge(id);
+    }
+
+    private void findAge(Integer id) {
+        Person person = personRepository.findOne(id);
+        Integer age = person.getAge();
+        if (age < 10) {
+            throw new BusinessException(ErrorEnum.PRIMARY_SCHOOL);
+        } else if (age > 10 && age < 16) {
+            throw new BusinessException(ErrorEnum.MIDDLE_SCHOOL);
+        } else {
+            // do something
+        }
     }
 
 }

@@ -28,10 +28,13 @@ public class MyBatisTest {
     @Test
     public void test() {
         List<Person> persons = personDao.findPerson();
+        System.out.println(persons.size());
     }
 
     @Test
     public void test2() {
         List<Person> persons = personMapper.findPersonList();
+        System.out.println(persons.size());
     }
+
 }
