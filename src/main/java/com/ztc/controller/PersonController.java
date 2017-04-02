@@ -3,6 +3,8 @@ package com.ztc.controller;
 import com.ztc.dao.PersonRepository;
 import com.ztc.entity.Person;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,6 +24,8 @@ import javax.validation.Valid;
  */
 @RestController
 public class PersonController {
+
+    private final static Logger logger = LoggerFactory.getLogger(PersonController.class);
 
     @Autowired
     private PersonRepository personRepository;
