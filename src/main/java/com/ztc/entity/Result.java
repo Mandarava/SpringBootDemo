@@ -11,7 +11,7 @@ public class Result<T> {
 
     private Integer code;
 
-    private String msg;
+    private String message;
 
     private String url;
 
@@ -25,12 +25,12 @@ public class Result<T> {
         this.code = code;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getMessage() {
+        return message;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public T getData() {

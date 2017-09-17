@@ -9,30 +9,31 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by zt
- * 2017/4/2 16:34
+ * Created by zt 2017/4/2 16:34
  */
 @ControllerAdvice
-public class ExceptionHandle {
+public class ExceptionHandle extends ResponseEntityExceptionHandler {
 
-    private final static Logger logger = LoggerFactory.getLogger(ExceptionHandle.class);
+    private final static Logger log = LoggerFactory.getLogger(ExceptionHandle.class);
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public Result handle(HttpServletRequest request, Exception e) {
-        logger.error("【系统异常】 {}", e);
-        logger.error(String.valueOf(request.getRequestURL()));
+        log.error("【系统异常】 {}", e.getMessage(), e);
+        log.error(String.valueOf(request.getRequestURL()));
         return ResultUtil.error(ErrorEnum.UNKNOWN_ERROR);
     }
 
     @ExceptionHandler(value = BusinessException.class)
     public Result businessExceptionHandler(BusinessException businessException) {
-        logger.error(businessException.getMessage(), businessException);
+        log.error(businessException.getMessage(), businessException);
         return ResultUtil.error(businessException.getCode(), businessException.getMessage());
     }
+
 
 }
