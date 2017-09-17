@@ -9,13 +9,3 @@ spring:
 mybatis:
   mapperLocations: classpath*:mapper/*.xml
   typeAliasesPackage: com.ztc.entity
-logging:
-  level:
-    root: debug
-    org:
-      hibernate: info
-      springframework :
-        web : info
-  path: G://
-  file: log.log
-  config: classpath:log4j2.yml

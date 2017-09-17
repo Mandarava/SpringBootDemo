@@ -1,6 +1,6 @@
 Configuration:
   name: Default
-  status: debug
+  status: INFO
 
   Properties:
       Property:
@@ -9,37 +9,39 @@ Configuration:
 
   Appenders:
     Console:
-      name: Console_Appender
+      name: CONSOLE_APPENDER
       target: SYSTEM_OUT
       PatternLayout:
         pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
     File:
-      name: File_Appender
+      name: FILE_APPENDER
       fileName: ${log-path}/logfile.log
       PatternLayout:
         pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
-
     RollingFile:
-        - name: RollingFile_Appender
+        - name: ROLLINGFILE_APPENDER
           fileName: ${log-path}/rollingfile.log
           filePattern: "logs/archive/rollingfile.log.%d{yyyy-MM-dd-hh-mm}.gz"
           PatternLayout:
             pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
           Policies:
             SizeBasedTriggeringPolicy:
-              size: 50 MB
+              size: 100 MB
           DefaultRollOverStrategy:
-            max: 30
+            max: 60
   Loggers:
-   - name: log4j2yml
      Root:
-      level: debug
+      level: INFO
       AppenderRef:
-       - ref: Console_Appender
-
+       - ref: CONSOLE_APPENDER
+       - ref: ROLLINGFILE_APPENDER
      Logger:
+      -
+        name: com.ztc
+        level: DEBUG
+        additivity: false
         AppenderRef:
-          - ref: File_Appender
-            level: debug
-          - ref: RollingFile_Appender
-            level: debug
+          - ref: CONSOLE_APPENDER
+            level: DEBUG
+          - ref: ROLLINGFILE_APPENDER
+            level: DEBUG

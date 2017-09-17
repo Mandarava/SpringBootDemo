@@ -2,7 +2,7 @@ server:
   port: 8089
   context-path: /SpringBootDemo
   tomcat:
-    uri-encoding: utf-8
+    uri-encoding: UTF-8
 
 spring:
   datasource:
@@ -30,15 +30,24 @@ spring:
     port: 6379
     password: root
     pool:
-      max-active: 8
-      max-wait: -1
-      max-idle: 500
-      min-idle: 0
-    timeout: 0
+      max-active: 500
+      max-wait: 1500
+      max-idle: 300
+      min-idle: 1
+    timeout: 3000
     database: 0
 
 management:
   security:
     enabled: false
+
+logging:
+  level:
+    root: INFO
+    org:
+      hibernate: INFO
+      springframework:
+        web: INFO
+  config: classpath:log4j2.yml
 
 content: "port: ${server.port },height: ${server.context-path}"
