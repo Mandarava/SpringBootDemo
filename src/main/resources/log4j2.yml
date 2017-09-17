@@ -12,7 +12,7 @@ Configuration:
       name: CONSOLE_APPENDER
       target: SYSTEM_OUT
       PatternLayout:
-        pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+        pattern: "%highlight{[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n}{FATAL=red, ERROR=red, WARN=yellow, INFO=grey, DEBUG=grey, TRACE=grey}"
     File:
       name: FILE_APPENDER
       fileName: ${log-path}/logfile.log
