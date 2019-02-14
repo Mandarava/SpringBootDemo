@@ -1,13 +1,9 @@
 package com.ztc.entity;
 
 /**
- * Created by zt
- * 2017/4/2 16:08
+ * Created by zt 2017/4/2 16:08
  */
 public class Result<T> {
-
-    public static final Integer OK = 0;
-    public static final Integer ERROR = 100;
 
     private Integer code;
 

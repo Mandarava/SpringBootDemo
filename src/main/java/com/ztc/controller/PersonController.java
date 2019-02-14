@@ -3,14 +3,11 @@ package com.ztc.controller;
 import com.ztc.dao.PersonRepository;
 import com.ztc.entity.Person;
 import com.ztc.entity.Result;
-import com.ztc.enums.ErrorEnum;
-import com.ztc.exception.BusinessException;
 import com.ztc.utils.ResultUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 import javax.validation.Valid;
+
 
 /**
  * Created by zt on 2016/12/24.
@@ -40,10 +38,7 @@ public class PersonController {
     }
 
     @PostMapping(value = "/person")
-    public Result<Person> personAdd(@Valid Person person, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return ResultUtil.error(Result.ERROR, bindingResult.getFieldError().getDefaultMessage());
-        }
+    public Result<Person> personAdd(@Valid Person person) {
         return ResultUtil.success(personRepository.save(person));
     }
 
@@ -74,20 +69,9 @@ public class PersonController {
     }
 
     @GetMapping(value = "/person/getAge/{id}")
-    public void getAge(@PathVariable("id") Integer id) {
-        this.findAge(id);
-    }
-
-    private void findAge(Integer id) {
+    public Integer getAge(@PathVariable("id") Integer id) {
         Person person = personRepository.findOne(id);
-        Integer age = person.getAge();
-        if (age < 10) {
-            throw new BusinessException(ErrorEnum.PRIMARY_SCHOOL);
-        } else if (age > 10 && age < 16) {
-            throw new BusinessException(ErrorEnum.MIDDLE_SCHOOL);
-        } else {
-            // do something
-        }
+        return person.getAge();
     }
 
 }

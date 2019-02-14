@@ -15,15 +15,14 @@ import java.util.List;
  */
 @RestController
 @MapperScan("com.ztc.dao")
-public class PersonControllerMybatis {
+public class PersonMybatisController {
 
     @Autowired
     private PersonMapper personMapper;
 
     @GetMapping(value = "/person2")
     public List<Person> findPersonList() {
-        List<Person> personList = personMapper.findPersonList();
-        return personList;
+        return personMapper.findPersonList();
     }
 
 }

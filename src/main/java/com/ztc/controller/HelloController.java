@@ -1,6 +1,7 @@
 package com.ztc.controller;
 
-import com.ztc.property.Properties;
+
+import com.ztc.constant.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,8 +24,8 @@ public class HelloController {
     private Properties properties;
 
     @GetMapping(value = "/hello/{name}")
-    public String hello(@PathVariable("name") String name ){
-        return  "Hello " + name;
+    public String hello(@PathVariable("name") String name) {
+        return "Hello " + name;
     }
 
 }

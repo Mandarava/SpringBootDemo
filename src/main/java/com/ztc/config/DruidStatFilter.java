@@ -1,4 +1,4 @@
-package com.ztc.controller;
+package com.ztc.config;
 
 import com.alibaba.druid.support.http.WebStatFilter;
 

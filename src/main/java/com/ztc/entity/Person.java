@@ -17,7 +17,7 @@ public class Person {
 
     private String name;
 
-    @Min(value = 0, message = "年龄必须大于0岁！")
+    @Min(value = 0, message = "{person.age.min}")
     private Integer age;
 
     public Person() {

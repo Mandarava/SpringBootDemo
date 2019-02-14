@@ -9,3 +9,17 @@ spring:
 mybatis:
   mapperLocations: classpath*:mapper/*.xml
   typeAliasesPackage: com.ztc.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    default-statement-timeout: 60000
+    local-cache-scope: statement
+    use-generated-keys: true
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
+
+pagehelper:
+  reasonable: true
+  supportMethodsArguments: true
+  offset-as-page-num: true
+  row-bounds-with-count: true
+  page-size-zero: true

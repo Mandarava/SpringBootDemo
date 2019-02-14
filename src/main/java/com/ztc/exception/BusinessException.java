@@ -3,7 +3,7 @@ package com.ztc.exception;
 import com.ztc.enums.ErrorEnum;
 
 /**
- * Created by zt on 2017/2/3.
+ * Created by zt 2018/11/17 21:32
  */
 public class BusinessException extends RuntimeException {
 
@@ -11,8 +11,8 @@ public class BusinessException extends RuntimeException {
 
     private Integer code;
 
-    public BusinessException() {
-        super();
+    public BusinessException(String message) {
+        super(message);
     }
 
     public BusinessException(ErrorEnum errorEnum) {
@@ -20,8 +20,8 @@ public class BusinessException extends RuntimeException {
         this.code = errorEnum.getCode();
     }
 
-    public BusinessException(String message) {
-        super(message);
+    public BusinessException(String message, Exception e) {
+        super(message, e);
     }
 
     public Integer getCode() {

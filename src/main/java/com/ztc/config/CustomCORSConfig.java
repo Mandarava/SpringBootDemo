@@ -10,7 +10,7 @@ import org.springframework.web.filter.CorsFilter;
  * Created by zt 2017/12/26 20:48
  */
 @Configuration
-public class CustomCORSConfiguration {
+public class CustomCORSConfig {
 
     private CorsConfiguration buildConfig() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();

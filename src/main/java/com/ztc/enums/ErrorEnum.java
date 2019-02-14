@@ -1,8 +1,7 @@
 package com.ztc.enums;
 
 /**
- * Created by zt
- * 2017/4/2 16:59
+ * Created by zt 2017/4/2 16:59
  */
 public enum ErrorEnum {
 
@@ -10,11 +9,7 @@ public enum ErrorEnum {
 
     SUCCESS(0, "成功"),
 
-    ERROR(1, "失败"),
-
-    PRIMARY_SCHOOL(100, "还在上小学"),
-
-    MIDDLE_SCHOOL(101, "还在上初中");
+    ERROR(1, "失败");
 
     private Integer code;
 

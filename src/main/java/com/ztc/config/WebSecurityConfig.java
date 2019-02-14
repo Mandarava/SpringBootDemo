@@ -1,8 +1,5 @@
 package com.ztc.config;
 
-import com.ztc.filter.JWTAuthenticationFilter;
-import com.ztc.filter.JWTLoginFilter;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
