@@ -1,4 +1,4 @@
-package com.ztc.dao;
+package com.ztc.repository;
 
 import com.ztc.entity.AccountCredentials;
 

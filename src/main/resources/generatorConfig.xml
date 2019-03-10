@@ -38,7 +38,7 @@
         </sqlMapGenerator>
         
         <javaClientGenerator type="MIXEDMAPPER"
-                             targetPackage="com.ztc.mapper.mybatis"
+                             targetPackage="com.ztc.repository.mybatis"
                              targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>

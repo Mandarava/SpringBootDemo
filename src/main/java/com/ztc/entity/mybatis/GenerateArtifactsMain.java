@@ -1,6 +1,6 @@
 package com.ztc.entity.mybatis;
 
-import com.ztc.mapper.mybatis.CoffeeMapper;
+import com.ztc.repository.mybatis.CoffeeMapper;
 
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;

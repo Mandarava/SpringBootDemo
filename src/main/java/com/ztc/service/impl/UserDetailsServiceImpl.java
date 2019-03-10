@@ -1,7 +1,7 @@
 package com.ztc.service.impl;
 
-import com.ztc.dao.UserRepository;
 import com.ztc.entity.AccountCredentials;
+import com.ztc.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;

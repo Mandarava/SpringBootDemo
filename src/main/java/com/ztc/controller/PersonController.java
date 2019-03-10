@@ -1,8 +1,9 @@
 package com.ztc.controller;
 
-import com.ztc.dao.PersonRepository;
 import com.ztc.entity.Person;
 import com.ztc.entity.Result;
+import com.ztc.repository.PersonMapper;
+import com.ztc.repository.PersonRepository;
 import com.ztc.utils.ResultUtil;
 
 import org.slf4j.Logger;
@@ -31,6 +32,9 @@ public class PersonController {
 
     @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    private PersonMapper personMapper;
 
     @GetMapping(value = "/person")
     public List<Person> personList() {
@@ -72,6 +76,11 @@ public class PersonController {
     public Integer getAge(@PathVariable("id") Integer id) {
         Person person = personRepository.findOne(id);
         return person.getAge();
+    }
+
+    @GetMapping(value = "/person2")
+    public List<Person> findPersonList() {
+        return personMapper.findPersonList();
     }
 
 }

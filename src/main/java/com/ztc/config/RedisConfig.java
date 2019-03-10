@@ -1,6 +1,8 @@
 package com.ztc.config;
 
 import com.alibaba.fastjson.support.spring.GenericFastJsonRedisSerializer;
+import com.ztc.converter.BytesToMoneyConverter;
+import com.ztc.converter.MoneyToBytesConverter;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -10,12 +12,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.convert.CustomConversions;
+import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import java.util.Arrays;
+
 @Configuration
-@EnableCaching
 @EnableAutoConfiguration
+@EnableCaching(proxyTargetClass = true)
+@EnableRedisRepositories
 public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean(name = "redisTemplate")
@@ -39,6 +46,12 @@ public class RedisConfig extends CachingConfigurerSupport {
         StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
         stringRedisTemplate.setConnectionFactory(connectionFactory);
         return stringRedisTemplate;
+    }
+
+    @Bean
+    public CustomConversions redisCustomConversions() {
+        return new CustomConversions(
+                Arrays.asList(new MoneyToBytesConverter(), new BytesToMoneyConverter()));
     }
 
 //    @Bean

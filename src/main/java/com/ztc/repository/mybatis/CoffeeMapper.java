@@ -1,4 +1,4 @@
-package com.ztc.mapper.mybatis;
+package com.ztc.repository.mybatis;
 
 import com.ztc.entity.mybatis.Coffee;
 import com.ztc.entity.mybatis.CoffeeExample;
@@ -94,7 +94,7 @@ public interface CoffeeMapper {
             "from t_coffee",
             "where id = #{id,jdbcType=BIGINT}"
     })
-    @ResultMap("com.ztc.mapper.mybatis.CoffeeMapper.BaseResultMap")
+    @ResultMap("com.ztc.repository.mybatis.CoffeeMapper.BaseResultMap")
     Coffee selectByPrimaryKey(Long id);
 
     /**

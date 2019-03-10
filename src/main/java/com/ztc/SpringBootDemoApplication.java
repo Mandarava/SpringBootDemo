@@ -5,14 +5,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.system.ApplicationPidFileWriter;
 import org.springframework.boot.web.servlet.ServletComponentScan;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @ServletComponentScan
 @EnableTransactionManagement
-@EnableCaching(proxyTargetClass = true)
-@MapperScan("com.ztc.mapper.**")
+@MapperScan("com.ztc.repository.**")
 public class SpringBootDemoApplication {
 
     public static void main(String[] args) {

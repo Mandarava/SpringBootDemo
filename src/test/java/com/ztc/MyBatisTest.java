@@ -1,8 +1,7 @@
 package com.ztc;
 
-import com.ztc.dao.PersonDao;
-import com.ztc.dao.PersonMapper;
 import com.ztc.entity.Person;
+import com.ztc.repository.PersonMapper;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,16 +19,7 @@ import java.util.List;
 public class MyBatisTest {
 
     @Autowired
-    PersonDao personDao;
-
-    @Autowired
     PersonMapper personMapper;
-
-    @Test
-    public void test() {
-        List<Person> persons = personDao.findPerson();
-        System.out.println(persons.size());
-    }
 
     @Test
     public void test2() {
