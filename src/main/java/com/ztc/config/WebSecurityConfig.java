@@ -28,6 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/users/signup").permitAll()
+                .antMatchers("/druid/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 // We filter the api/login requests
