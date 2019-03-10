@@ -75,19 +75,6 @@ spring:
       max-wait: 1000
       max-idle: 100
       min-idle: 4
-  session:
-    store-type: redis
-    redis:
-      namespace: spring_session
-
-management:
-  security:
-    enabled: true
-
-logging:
-  level:
-    root: info
-  config: classpath:log4j2.yml
 
 public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJMrzZf5eu2gWfCMrmzW0HK9tAtPptXG6iNrJv6wTnDb9tfixi9lz+HQFQ8nCC7zJs+Rl6kPE4t33uBK7mqSiJkCAwEAAQ==
 content: "port: ${server.port },height: ${server.context-path}"

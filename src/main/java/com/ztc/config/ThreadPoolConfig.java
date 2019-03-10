@@ -14,12 +14,13 @@ public class ThreadPoolConfig {
     @Bean("threadPoolTaskExecutor")
     public ThreadPoolTaskExecutor threadPoolTaskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(1);
+        executor.setCorePoolSize(Runtime.getRuntime().availableProcessors());
         executor.setMaxPoolSize(Runtime.getRuntime().availableProcessors() * 2);
-        executor.setQueueCapacity(200);
-        executor.setKeepAliveSeconds(60);
+        executor.setQueueCapacity(512);
+        executor.setKeepAliveSeconds(15);
         executor.setThreadNamePrefix("ThreadPoolTaskExecutor-");
-        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        executor.setAllowCoreThreadTimeOut(true);
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
         return executor;
     }
 }
