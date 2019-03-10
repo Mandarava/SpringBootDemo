@@ -37,9 +37,10 @@ spring:
       stat-view-servlet:
         enabled: true
         url-pattern: /druid/*
-        reset-enable: true
+        reset-enable: false
         login-username: admin
         login-password: admin
+        allow: 127.0.0.1
       filter:
         stat:
           slowSqlMillis: 3000
