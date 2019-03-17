@@ -31,16 +31,12 @@ public class HttpAspect {
     public void doBefore(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        // url
-        logger.info("url = {}", request.getRequestURL());
-        // method
-        logger.info("method = {}", request.getMethod());
-        // ip
-        logger.info("ip = {}", request.getRemoteAddr());
-        // 类方法
-        logger.info("class_method = {}", joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        // 参数
-        logger.info("args = {}", joinPoint.getArgs());
+        logger.info("url = {} method = {} ip = {} class_method = {} args = {}"
+                , request.getRequestURL() // url
+                , request.getMethod() // http method
+                , request.getRemoteAddr() // ip
+                , joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName() // 类方法
+                , joinPoint.getArgs()); // 参数
     }
 
     @After("log()")

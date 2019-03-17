@@ -27,26 +27,28 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
         <mybatis-spring-boot-starter.version>1.3.2</mybatis-spring-boot-starter.version>
-        <druid-spring-boot-starter.version>1.1.10</druid-spring-boot-starter.version>
+        <druid-spring-boot-starter.version>1.1.14</druid-spring-boot-starter.version>
         <pagehelper-spring-boot-starter.version>1.2.10</pagehelper-spring-boot-starter.version>
         <mybatis-generator-core.version>1.3.7</mybatis-generator-core.version>
         <jackson-dataformat-yaml.version>2.8.11</jackson-dataformat-yaml.version>
-        <commons-collections4.version>4.2</commons-collections4.version>
+        <commons-collections4.version>4.3</commons-collections4.version>
         <commons-lang3.version>3.2.1</commons-lang3.version>
         <commons-io.version>2.4</commons-io.version>
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
-        <commons-codec.version>1.11</commons-codec.version>
-        <commons-pool2.version>2.6.0</commons-pool2.version>
+        <commons-codec.version>1.12</commons-codec.version>
+        <commons-pool2.version>2.6.1</commons-pool2.version>
         <reflections.version>0.9.11</reflections.version>
         <apache-poi.version>4.0.1</apache-poi.version>
         <joda-time.version>2.10.1</joda-time.version>
         <joda-money.version>1.0.1</joda-money.version>
         <usertype.core.version>5.0.0.GA</usertype.core.version>
+        <reactor-core.version>3.2.6.RELEASE</reactor-core.version>
         <fastjson.version>1.2.56</fastjson.version>
         <jjwt.version>0.9.1</jjwt.version>
         <lombok.version>1.18.6</lombok.version>
         <disruptor.version>3.4.2</disruptor.version>
-        <swagger-core.version>1.5.20</swagger-core.version>
+        <p6spy.version>3.8.1</p6spy.version>
+        <swagger-core.version>1.5.22</swagger-core.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
         <springfox-staticdocs.version>2.6.1</springfox-staticdocs.version>
@@ -265,9 +267,9 @@
         </dependency>
     
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+            <version>${reactor-core.version}</version>
         </dependency>
     
         <dependency>
@@ -283,9 +285,21 @@
         </dependency>
     
         <dependency>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
+            <version>${p6spy.version}</version>
+        </dependency>
+    
+        <dependency>
             <groupId>org.eclipse.jgit</groupId>
             <artifactId>org.eclipse.jgit</artifactId>
             <version>5.2.1.201812262042-r</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
