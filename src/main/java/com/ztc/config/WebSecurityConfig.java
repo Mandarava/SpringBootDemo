@@ -29,14 +29,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/users/signup").permitAll()
                 .antMatchers("/druid/**").permitAll()
+                .antMatchers("/static/**").permitAll()
+                .antMatchers(
+                        "/webjars/**"
+                        , "/resources/**"
+                        , "/swagger-ui.html"
+                        , "/swagger-resources/**"
+                        , "/v2/api-docs"
+                        , "/configuration/ui"
+                        , "/configuration/security").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 // We filter the api/login requests
-                .addFilterBefore(new JWTLoginFilter("/login", authenticationManager()),
-                        UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new JWTLoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
                 // And filter other requests to check the presence of JWT in header
-                .addFilterBefore(new JWTAuthenticationFilter(),
-                        UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override

@@ -20,6 +20,17 @@ spring:
       namespace: spring_session
   cache:
     type: redis
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/META-INF/resources/webjars/,classpath:/static/
+    chain:
+      enabled: true
+      cache: true
+      gzipped: true
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+    cache-period: 3600
 mybatis:
   mapperLocations: classpath*:mapper/*.xml
   typeAliasesPackage: com.ztc.entity
