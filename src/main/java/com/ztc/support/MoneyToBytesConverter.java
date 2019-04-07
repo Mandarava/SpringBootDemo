@@ -1,4 +1,4 @@
-package com.ztc.converter;
+package com.ztc.support;
 
 import org.joda.money.Money;
 import org.springframework.core.convert.converter.Converter;

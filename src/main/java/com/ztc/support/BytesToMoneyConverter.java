@@ -1,4 +1,4 @@
-package com.ztc.converter;
+package com.ztc.support;
 
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;

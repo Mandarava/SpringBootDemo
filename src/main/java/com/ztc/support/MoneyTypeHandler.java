@@ -1,4 +1,4 @@
-package com.ztc.handler;
+package com.ztc.support;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;

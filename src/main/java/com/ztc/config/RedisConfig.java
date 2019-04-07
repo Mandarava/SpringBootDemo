@@ -1,8 +1,8 @@
 package com.ztc.config;
 
 import com.alibaba.fastjson.support.spring.GenericFastJsonRedisSerializer;
-import com.ztc.converter.BytesToMoneyConverter;
-import com.ztc.converter.MoneyToBytesConverter;
+import com.ztc.support.BytesToMoneyConverter;
+import com.ztc.support.MoneyToBytesConverter;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cache.annotation.CachingConfigurerSupport;

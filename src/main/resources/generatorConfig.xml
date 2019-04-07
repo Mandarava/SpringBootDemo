@@ -46,7 +46,7 @@
         <table tableName="t_coffee" domainObjectName="Coffee">
             <generatedKey column="id" sqlStatement="CALL IDENTITY()" identity="true"/>
             <columnOverride column="price" javaType="org.joda.money.Money" jdbcType="BIGINT"
-                            typeHandler="com.ztc.handler.MoneyTypeHandler"/>
+                            typeHandler="com.ztc.support.MoneyTypeHandler"/>
         </table>
     </context>
 </generatorConfiguration>

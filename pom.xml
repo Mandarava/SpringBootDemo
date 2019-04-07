@@ -44,6 +44,7 @@
         <usertype.core.version>5.0.0.GA</usertype.core.version>
         <reactor-core.version>3.2.6.RELEASE</reactor-core.version>
         <fastjson.version>1.2.56</fastjson.version>
+        <httpcomponents.version>4.5.7</httpcomponents.version>
         <jjwt.version>0.9.1</jjwt.version>
         <lombok.version>1.18.6</lombok.version>
         <disruptor.version>3.4.2</disruptor.version>
@@ -251,6 +252,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpcomponents.version}</version>
         </dependency>
     
         <dependency>

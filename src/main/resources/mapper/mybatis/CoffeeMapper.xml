@@ -10,7 +10,7 @@
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="price" jdbcType="BIGINT" property="price"
-                typeHandler="com.ztc.handler.MoneyTypeHandler"/>
+                typeHandler="com.ztc.support.MoneyTypeHandler"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
